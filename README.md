@@ -36,6 +36,7 @@ I am deeply passionate about Geneerative AI, especially in the field of image ge
  - Auto handling Image resolution for conditioning images -> no cropping -> stretching or other methods.
  - Add the Avatar generation capabilities (IP-Adapter or Instant-ID or LORA training or someone face images)...
  - Utilize Live portrait to bring Avatar images to live -> Video to condition image
+ - Add Upscaler, Detailer, and Refiner pipelines to improve queality of the final output. 
  - For **production grade project** you would definitely divide the project into a proper structure: **GUI - API_GATEWAY - PIPELINE_HOSTING**  to be able to scale each component independently, ensure security, and optimize resource usage in production environments. The one-app solution that I've chosen was due to, well valuing my time.. (It was supposed to be only a task not ready product right ;)
  - Many many more...
 
