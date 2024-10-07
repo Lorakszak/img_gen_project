@@ -6,6 +6,7 @@
   - [Project Description](#project-description)
   - [Limitations](#limitations)
   - [Possible Improvements (For it to become a full fledged project -\> A LOT)](#possible-improvements-for-it-to-become-a-full-fledged-project---a-lot)
+  - [GUI](#gui)
   - [Showcase](#showcase)
     - [Stable Diffusion XL 1.0 Base + controlnet (depth)](#stable-diffusion-xl-10-base--controlnet-depth)
     - [JuggernautXL + controlnet (canny)](#juggernautxl--controlnet-canny)
@@ -39,6 +40,12 @@ I am deeply passionate about Geneerative AI, especially in the field of image ge
  - For **production grade project** you would definitely divide the project into a proper structure: **GUI - API_GATEWAY - PIPELINE_HOSTING**  to be able to scale each component independently, ensure security, and optimize resource usage in production environments. The one-app solution that I've chosen was due to, well valuing my time.. (It was supposed to be only a task not ready product right ;)
  - Many many more...
 
+
+## GUI 
+
+Screenshot of the gui with application of style transfer using canny controlnet.
+
+![GUI screenshot](Examples/GUI.png)
 
 ## Showcase
 Some of the style transfers made using this little tool separated on the basis on the checkpoint used -> You can find them in `Examples`
