@@ -39,11 +39,11 @@ Some of the style transfers made using this little tool separated on the basis o
   <tr>
     <td align="center">
       <img src="Examples/sdxl_pixelart_depth.webp" alt="Pixelart" width="600"><br>
-      <p>Fantasy</p>
+      <p>Pixelart</p>
     </td>
     <td align="center">
       <img src="Examples/sdxl_steampunk_depth.webp" alt="Steampunk" width="600"><br>
-      <p>Horror</p>
+      <p>Steampunk</p>
     </td>
   </tr>
   <tr>
@@ -53,7 +53,7 @@ Some of the style transfers made using this little tool separated on the basis o
     </td>
     <td align="center">
       <img src="Examples/sdxl_watercolor_depth.webp" alt="Watercolor" width="600"><br>
-      <p>Pixelart</p>
+      <p>Watercolor</p>
     </td>
   </tr>
 </table>
