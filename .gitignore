@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# AI Models
+*.safetensors
+
 # Distribution / packaging
 .Python
 build/
