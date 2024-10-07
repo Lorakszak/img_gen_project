@@ -227,25 +227,33 @@ As I used the project to prove my abilities in developing applications it will b
      pip install -r requirements.txt
      ```
 
+  5. Ensure you have the correct directory structure by running these:
+     ```bash
+     mkdir -p ./assets/SDXL_base_1_0
+     mkdir -p ./assets/Juggernaut_XL
+     mkdir -p ./assets/YamerMIX
+     mkdir -p ./assets/Controlnets/canny_XL
+     mkdir -p ./assets/Controlnets/depth_XL
+     ```
 
-  5. Download the models:
+  6. Download the models:
   
      - **SDXL base 1.0**:  
-       Download the model naming it accordingly `model.safetensors`, then placing it in the `./assets/SDXL_base_1_0` directory:
+       Download the model and place it in the `./assets/SDXL_base_1_0` directory:
        ```bash
        curl -L -o ./assets/SDXL_base_1_0/model.safetensors \
        https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true
        ```
 
      - **JuggernautXL Rundiffusionphoto2**:  
-       Download the model and name it accordingly `juggernautXL_v9Rundiffusionphoto2.safetensors`, then place it in the `./assets/Juggernaut_XL` directory:
+       Download the model, then place it in the `./assets/Juggernaut_XL` directory:
        ```bash
        curl -L -o ./assets/Juggernaut_XL/juggernautXL_v9Rundiffusionphoto2.safetensors \
        https://civitai.com/api/download/models/348913?type=Model&format=SafeTensor&size=full&fp=fp16
        ```
 
      - **YamerMIX**:  
-       Download the model and name it accordingly `sdxlUnstableDiffusers_nihilmania.safetensors`, then place it in the `./assets/YamerMIX` directory:
+       Download the model, then place it in the `./assets/YamerMIX` directory:
        ```bash
        curl -L -o ./assets/YamerMIX/sdxlUnstableDiffusers_nihilmania.safetensors \
        https://civitai.com/api/download/models/395107?type=Model&format=SafeTensor&size=pruned&fp=fp16
@@ -254,27 +262,27 @@ As I used the project to prove my abilities in developing applications it will b
      - **Controlnets**:
 
        - **Canny**:  
-         Download the model and rename it to `diffusion_pytorch_model.fp16.safetensors`, then place it in the `./assets/Controlnets/canny_XL` directory:
+         Download the model, then place it in the `./assets/Controlnets/canny_XL` directory:
          ```bash
          curl -L -o ./assets/Controlnets/canny_XL/diffusion_pytorch_model.fp16.safetensors \
          https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
          ```
 
        - **Depth**:  
-         Download the model and rename it to `diffusion_pytorch_model.fp16.safetensors`, then place it in the `./assets/Controlnets/depth_XL` directory:
+         Download the model, then place it in the `./assets/Controlnets/depth_XL` directory:
          ```bash
          curl -L -o ./assets/Controlnets/depth_XL/diffusion_pytorch_model.fp16.safetensors \
          https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
          ```
 
 
-  6. Run the App by:
+  7. Run the App by:
      ```bash
      python main.py
      ```
 
 
-  7. From the same device go to the link: `https://0.0.0.0:7860`
+  8. From the same device go to the link: `https://0.0.0.0:7860`
 
   (+) Alternatively if you want to see more output through the terminal change the 
     `DEBUG = os.environ.get("DEBUG", "False").lower() == "true"` to 
