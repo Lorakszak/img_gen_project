@@ -1,5 +1,6 @@
 # LabHouse Interview project: **SimpleGen**
 
+
 ## Table of Contents
 - [LabHouse Interview project: **SimpleGen**](#labhouse-interview-project-simplegen)
   - [Table of Contents](#table-of-contents)
@@ -15,6 +16,7 @@
   - [Running the project](#running-the-project)
     - [Option 1. Docker Container (NOT SUPPORTED)](#option-1-docker-container-not-supported)
     - [Option 2. Running Locally (Tested on RTX4090):](#option-2-running-locally-tested-on-rtx4090)
+
 
 ## Project Description
 Initially, I planned to complete both projects because they seemed straightforward from a functionality perspective (writing Python functions in Jupyter and sharing the notebook). However, as I progressed, I realized I wanted to go beyond just showcasing the functionality. Instead, I aimed to demonstrate my full capabilities by building a fully autonomous web application with a custom GUI, containerized and running without reliance on external APIs for generation.
@@ -47,6 +49,7 @@ I am deeply passionate about Geneerative AI, especially in the field of image ge
 Screenshot of the gui with application of style transfer using canny controlnet.
 
 ![GUI screenshot](Examples/GUI.png)
+
 
 ## Showcase
 Some of the style transfers made using this little tool separated on the basis on the checkpoint used -> You can find them in `Examples`
@@ -200,15 +203,19 @@ Some of the style transfers made using this little tool separated on the basis o
 
 Additional Images and GenAI projects I took part in can be found on my [Google Drive Portfolio](https://drive.google.com/drive/u/0/folders/1d7hiyd0rEAWHNBJOwgtBDqmGfEUG3tce) if you're interested to see what I can do.
 
+
 ## Prerequisites
  - Nvidia GPU card with at least 12GB of VRAM
  - Nvidia CUDA installed -> [installing](https://developer.nvidia.com/cuda-downloads)
 
+
 ## Running the project
 As I used the project to prove my abilities in developing applications it will be a lot to download, instead of using API's I decided to show I can handle hosting it as well..
 
+
 ### Option 1. Docker Container (NOT SUPPORTED)
  Due to the extreme size of the docker image (33.7GB) and the GPU compatibilities within running the container, AND the need for docker Nvidia Container Toolkit installed together with CUDA I decided to resign from uploading it.. It works for image generation inference and style transfer using Canny, but there are some unresolved issues with Depth estimation preprocessor (only in the container version)... (TODO)
+
 
 ### Option 2. Running Locally (Tested on RTX4090):
 
