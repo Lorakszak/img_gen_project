@@ -186,13 +186,13 @@ As I used the project to prove my abilities in developing applications it will b
 
   1. Download the codebase:
      ```bash
-     git clone <your-repo-url>
+     git clone https://github.com/Lorakszak/img_gen_project
      ```
 
 
   2. CD into the root directory of the project:
      ```bash
-     cd <your-project-directory>
+     cd img_gen_project/  
      ```
 
 
