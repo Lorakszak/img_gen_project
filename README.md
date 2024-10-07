@@ -236,44 +236,22 @@ As I used the project to prove my abilities in developing applications it will b
      mkdir -p ./assets/Controlnets/depth_XL
      ```
 
-  6. Download the models:
+  6. Download the models
+This step involves downloading various models using curl and saving them to their respective directories in the ./assets folder. Each command fetches a model from an online source (such as Hugging Face or Civitai) and saves it locally with a specified name. The models include:
+   - SDXL base 1.0
+   - JuggernautXL Rundiffusionphoto2
+   - YamerMIX
+   - Controlnet Canny
+   - Controlnet Depth
   
-     - **SDXL base 1.0**:  
-       Download the model and place it in the `./assets/SDXL_base_1_0` directory:
-       ```bash
-       curl -L -o ./assets/SDXL_base_1_0/model.safetensors \
-       https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true
-       ```
+    ```bash
+    curl -L -o ./assets/SDXL_base_1_0/model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true && \
+    curl -L -o ./assets/Juggernaut_XL/juggernautXL_v9Rundiffusionphoto2.safetensors https://civitai.com/api/download/models/348913?type=Model&format=SafeTensor&size=full&fp=fp16 && \
+    curl -L -o ./assets/YamerMIX/sdxlUnstableDiffusers_nihilmania.safetensors https://civitai.com/api/download/models/395107?type=Model&format=SafeTensor&size=pruned&fp=fp16 && \
+    curl -L -o ./assets/Controlnets/canny_XL/diffusion_pytorch_model.fp16.safetensors https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true && \
+    curl -L -o ./assets/Controlnets/depth_XL/diffusion_pytorch_model.fp16.safetensors https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
 
-     - **JuggernautXL Rundiffusionphoto2**:  
-       Download the model, then place it in the `./assets/Juggernaut_XL` directory:
-       ```bash
-       curl -L -o ./assets/Juggernaut_XL/juggernautXL_v9Rundiffusionphoto2.safetensors \
-       https://civitai.com/api/download/models/348913?type=Model&format=SafeTensor&size=full&fp=fp16
-       ```
-
-     - **YamerMIX**:  
-       Download the model, then place it in the `./assets/YamerMIX` directory:
-       ```bash
-       curl -L -o ./assets/YamerMIX/sdxlUnstableDiffusers_nihilmania.safetensors \
-       https://civitai.com/api/download/models/395107?type=Model&format=SafeTensor&size=pruned&fp=fp16
-       ```
-
-     - **Controlnets**:
-
-       - **Canny**:  
-         Download the model, then place it in the `./assets/Controlnets/canny_XL` directory:
-         ```bash
-         curl -L -o ./assets/Controlnets/canny_XL/diffusion_pytorch_model.fp16.safetensors \
-         https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
-         ```
-
-       - **Depth**:  
-         Download the model, then place it in the `./assets/Controlnets/depth_XL` directory:
-         ```bash
-         curl -L -o ./assets/Controlnets/depth_XL/diffusion_pytorch_model.fp16.safetensors \
-         https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
-         ```
+    ```
 
 
   7. Run the App by:
