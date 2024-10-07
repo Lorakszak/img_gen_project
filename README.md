@@ -180,7 +180,7 @@ Some of the style transfers made using this little tool separated on the basis o
 As I used the project to prove my abilities in developing applications it will be a lot to download, instead of using API's I decided to show I can handle hosting it as well..
 
 ### Option 1. Docker Container
- Due to the extreme size of the docker image (33.7GB) and the GPU compatibilities within running the container I decided to resign from uploading it.. It works for image generation inference and style transfer using Canny, but there are some unresolved issues with Depth estimation preprocessor... (TODO)
+ Due to the extreme size of the docker image (33.7GB) and the GPU compatibilities within running the container, AND the need for docker Nvidia Container Toolkit installed together with CUDA I decided to resign from uploading it.. It works for image generation inference and style transfer using Canny, but there are some unresolved issues with Depth estimation preprocessor (only in the container version)... (TODO)
 
 ### Option 2. Running Locally:
 
