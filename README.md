@@ -236,8 +236,8 @@ As I used the project to prove my abilities in developing applications it will b
      mkdir -p ./assets/Controlnets/depth_XL
      ```
 
-  6. Download the models
-This step involves downloading various models using curl and saving them to their respective directories in the ./assets folder. Each command fetches a model from an online source (such as Hugging Face or Civitai) and saves it locally with a specified name. The models include:
+  6. Download the models:
+This step involves downloading various models (I hope you have a fast internet) and saving them to their respective directories in the ./assets folder. Each command fetches a model from an online source (such as Hugging Face or Civitai) and saves it locally with a specified name. The models include:
    - SDXL base 1.0
    - JuggernautXL Rundiffusionphoto2
    - YamerMIX
