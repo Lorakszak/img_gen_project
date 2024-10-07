@@ -244,14 +244,13 @@ This step involves downloading various models (I hope you have a fast internet) 
    - Controlnet Canny
    - Controlnet Depth
   
-    ```bash
-    curl -L -o ./assets/SDXL_base_1_0/model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true && \
-    curl -L -o ./assets/Juggernaut_XL/juggernautXL_v9Rundiffusionphoto2.safetensors https://civitai.com/api/download/models/348913?type=Model&format=SafeTensor&size=full&fp=fp16 && \
-    curl -L -o ./assets/YamerMIX/sdxlUnstableDiffusers_nihilmania.safetensors https://civitai.com/api/download/models/395107?type=Model&format=SafeTensor&size=pruned&fp=fp16 && \
-    curl -L -o ./assets/Controlnets/canny_XL/diffusion_pytorch_model.fp16.safetensors https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true && \
-    curl -L -o ./assets/Controlnets/depth_XL/diffusion_pytorch_model.fp16.safetensors https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
-
-    ```
+   ```bash
+     curl -L -o ./assets/SDXL_base_1_0/model.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true && \
+     curl -L -o ./assets/Juggernaut_XL/juggernautXL_v9Rundiffusionphoto2.safetensors https://civitai.com/api/download/models/348913?type=Model&format=SafeTensor&size=full&fp=fp16 && \
+     curl -L -o ./assets/YamerMIX/sdxlUnstableDiffusers_nihilmania.safetensors https://civitai.com/api/download/models/395107?type=Model&format=SafeTensor&size=pruned&fp=fp16 && \
+     curl -L -o ./assets/Controlnets/canny_XL/diffusion_pytorch_model.fp16.safetensors https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true && \
+     curl -L -o ./assets/Controlnets/depth_XL/diffusion_pytorch_model.fp16.safetensors https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
+   ```
 
 
   7. Run the App by:
