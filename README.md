@@ -1,58 +1,62 @@
-# LabHouse Interview project: **SimpleGen**
+# SimpleGen
 
+Image style transfer application using Stable Diffusion XL with ControlNet conditioning. Runs fully locally - no external API dependencies.
+
+![GUI screenshot](Examples/GUI.png)
+
+## Built With
+
+- **Stable Diffusion XL** - image generation backbone (SDXL 1.0 Base, JuggernautXL, YamerMIX)
+- **ControlNet** - structural conditioning via Canny edge detection and depth estimation
+- **Gradio** - web-based GUI
+- **PyTorch** - deep learning framework
+- **Docker** - containerization (experimental)
 
 ## Table of Contents
-- [LabHouse Interview project: **SimpleGen**](#labhouse-interview-project-simplegen)
+- [SimpleGen](#simplegen)
+  - [Built With](#built-with)
   - [Table of Contents](#table-of-contents)
-  - [Project Description](#project-description)
-  - [Limitations](#limitations)
-  - [Possible Improvements (For it to become a full fledged project -\> A LOT)](#possible-improvements-for-it-to-become-a-full-fledged-project---a-lot)
-  - [GUI](#gui)
+  - [Features](#features)
   - [Showcase](#showcase)
     - [Stable Diffusion XL 1.0 Base + controlnet (depth)](#stable-diffusion-xl-10-base--controlnet-depth)
     - [JuggernautXL + controlnet (canny)](#juggernautxl--controlnet-canny)
     - [YamerMIX (Unstable Diffusion) + controlnet (depth/canny)](#yamermix-unstable-diffusion--controlnet-depthcanny)
+  - [Limitations](#limitations)
+  - [Possible Improvements](#possible-improvements)
   - [Prerequisites](#prerequisites)
   - [Running the project](#running-the-project)
     - [Option 1. Docker Container (NOT SUPPORTED)](#option-1-docker-container-not-supported)
     - [Option 2. Running Locally (Tested on RTX4090):](#option-2-running-locally-tested-on-rtx4090)
 
 
-## Project Description
-Initially, I planned to complete both projects because they seemed straightforward from a functionality perspective (writing Python functions in Jupyter and sharing the notebook). However, as I progressed, I realized I wanted to go beyond just showcasing the functionality. Instead, I aimed to demonstrate my full capabilities by building a fully autonomous web application with a custom GUI, containerized and running without reliance on external APIs for generation.
-
-Combining style transfer using SDXL + ControlNets with avatar creation through IP-Adapter or Instant-ID, while simultaneously developing a custom app containerizing it, and ensuring it met the high-quality standards I envisioned, resulted in an overly complex project. Therefore, I decided to focus solely on the style transfer aspect to ensure the delivery of a polished and functional solution.
-
-I am deeply passionate about Geneerative AI, especially in the field of image generation, and have invested significant effort into this project to reflect my commitment and skills in this area. I truly hope this project conveys the level of dedication and expertise I bring to the table, as I am eager to contribute to the exciting advancements in Generative AI.
+## Features
+- Apply artistic styles (Watercolor, Film Noir, Cyberpunk, Anime, Pixelart, and more) to any input image
+- 3 model checkpoints with different generation characteristics
+- Dual ControlNet support (Canny + Depth) for fine-grained structural control
+- Configurable generation parameters (sampling method, steps, CFG scale, resolution, seed)
+- Self-contained - all inference runs on your local GPU, no cloud APIs needed
 
 
 ## Limitations
- - While using controlnets for style transfer stick to similar aspect ratio of newly generated image otherwise image crop applies.
- - NO SUPPORT FOR CPU ONLY INFERENCE!!! -> It would take hours to generate an image with it anyways..
- - From my tests you need 10-14GB of VRAM to run the inference with both Controlnets and standard image resolution 1024x1024.
+ - GPU required - CPU-only inference is not supported (float16 precision, and generation would take hours regardless)
+ - ControlNet style transfer works best when the output aspect ratio is similar to the input, otherwise cropping is applied
+ - Requires 10-14GB of VRAM for dual ControlNet inference at the default 1024x1024 resolution
 
 
-## Possible Improvements (For it to become a full fledged project -> A LOT)
- - Add support for CPU only inference, however inference on CPU takes up to, well hours... depending on how many sampling steps you set.
- - Add support for separate Controlnets Conditioning Scale for different models, separate condition images, multi-image condition, Condition length (e.g. the Controlnet is applied on step 0%-80% and then the last 20% steps are pure Diffusion model to refine the image), add more customizability when it comes to Canny preprocessor, add other controlnets (like Openpose etc.)
- - Add metadata to Images concerning their generation process (for reproducibility)
- - Auto handling Image resolution for conditioning images -> no cropping -> stretching or other methods.
- - Add the Avatar generation capabilities (IP-Adapter or Instant-ID or LORA training or someone face images)...
- - Utilize Live portrait to bring Avatar images to live -> Video to condition image
- - Add Upscaler, Detailer, and Refiner pipelines to improve queality of the final output. 
- - For **production grade project** you would definitely divide the project into a proper structure: **GUI - API_GATEWAY - PIPELINE_HOSTING**  to be able to scale each component independently, ensure security, and optimize resource usage in production environments. The one-app solution that I've chosen was due to, well valuing my time.. (It was supposed to be only a task not ready product right ;)
- - Many many more...
-
-
-## GUI 
-
-Screenshot of the gui with application of style transfer using canny controlnet.
-
-![GUI screenshot](Examples/GUI.png)
+## Possible Improvements
+ - Per-model ControlNet conditioning scales, separate condition images, multi-image conditioning
+ - ControlNet scheduling (e.g. apply conditioning for the first 80% of steps, then pure diffusion for refinement)
+ - Additional ControlNet types (OpenPose, etc.) and more Canny preprocessor options
+ - Generation metadata embedded in output images for reproducibility
+ - Automatic aspect ratio handling for conditioning images (padding/stretching instead of cropping)
+ - Avatar generation via IP-Adapter, Instant-ID, or LoRA fine-tuning
+ - Video conditioning using Live Portrait
+ - Post-processing pipelines: upscaling, detailing, and refining
+ - Production architecture: separate GUI, API gateway, and pipeline hosting for independent scaling
 
 
 ## Showcase
-Some of the style transfers made using this little tool separated on the basis on the checkpoint used -> You can find them in `Examples`
+Style transfer examples grouped by checkpoint - all outputs can be found in `Examples/`.
 
 ### Stable Diffusion XL 1.0 Base + controlnet (depth)
 
@@ -210,11 +214,11 @@ Additional Images and GenAI projects I took part in can be found on my [Google D
 
 
 ## Running the project
-As I used the project to prove my abilities in developing applications it will be a lot to download, instead of using API's I decided to show I can handle hosting it as well..
+All inference runs locally - model weights (~15GB total) need to be downloaded before first use.
 
 
 ### Option 1. Docker Container (NOT SUPPORTED)
- Due to the extreme size of the docker image (33.7GB) and the GPU compatibilities within running the container, AND the need for docker Nvidia Container Toolkit installed together with CUDA I decided to resign from uploading it.. It works for image generation inference and style transfer using Canny, but there are some unresolved issues with Depth estimation preprocessor (only in the container version)... (TODO)
+A Dockerfile is included but not fully supported. The image is ~33.7GB and requires the NVIDIA Container Toolkit with CUDA. Canny-based style transfer works in the container, but depth estimation has unresolved issues in the containerized environment.
 
 
 ### Option 2. Running Locally (Tested on RTX4090):
@@ -271,8 +275,7 @@ As I used the project to prove my abilities in developing applications it will b
      mkdir -p ./assets/Controlnets/depth_XL
      ```
 
-  6. Download the models:
-This step involves downloading various models (I hope you have a fast internet) and saving them to their respective directories in the ./assets folder. Each command fetches a model from an online source (such as Hugging Face or Civitai) and saves it locally with a specified name. The models include:
+  6. Download the models (~15GB total from Hugging Face and Civitai):
    - SDXL base 1.0
    - JuggernautXL Rundiffusionphoto2
    - YamerMIX
@@ -296,8 +299,8 @@ This step involves downloading various models (I hope you have a fast internet) 
 
   8. From the same device go to the link: `https://0.0.0.0:7860`
 
-  (+) Alternatively if you want to see more output through the terminal change the 
-    `DEBUG = os.environ.get("DEBUG", "False").lower() == "true"` to 
-    `DEBUG = os.environ.get("DEBUG", "True").lower() == "true"` in the `./config.py` file.
-    
-  Then the app will run on your localhost and will be accessible at `http://127.0.0.1:7860`
+  (+) For verbose logging, set the `DEBUG` environment variable:
+      ```bash
+      DEBUG=true python main.py
+      ```
+      The app will then be accessible at `http://127.0.0.1:7860`.
